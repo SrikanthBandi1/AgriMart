@@ -1,0 +1,18 @@
+.searchResult{
+    color: var(--unnamed-color-228e38);
+text-align: left;
+font: normal normal bold 24px/35px Poppins;
+letter-spacing: 0px;
+color: #228E38;
+opacity: 1;
+}
+.searchResultCard{
+    background: #FFFFFF 0% 0% no-repeat padding-box;
+    border-radius: 5%;
+opacity: 1;
+
+}
+.cardTitle{
+    font-weight: "bold";
+    border-radius: "44%";
+}

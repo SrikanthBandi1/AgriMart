@@ -1,0 +1,216 @@
+/* .App {
+  display: flex;
+  justify-content: center;
+}
+label {
+  display: flex;
+  font-weight: bold;
+  margin-bottom: 5px;
+}
+input[type="text"],
+input[type="email"] {
+  display: block;
+  width: 400px;
+  padding: 6px 12px;
+  font-size: 14px;
+  line-height: 1.42;
+  color: #555;
+  background-color: #fff;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  margin-bottom: 20px;
+} */
+
+.heading {
+  background: #cfff91 0% 0% no-repeat padding-box;
+  box-shadow: 0px 6px 6px #00000029;
+  border-radius: 30px;
+  opacity: 1;
+  padding: 6.6px 2rem;
+  text-align: left;
+  margin: 3rem 0;
+}
+.nav {
+  background: #ffffff 0% 0% no-repeat padding-box !important;
+  box-shadow: 0px 3px 6px #00000029 !important;
+  opacity: 1;
+}
+.bold {
+  font: bold;
+}
+
+.grid-4 {
+  display: grid;
+  text-align: center;
+}
+.green {
+  background-color: #124e00;
+  border: none;
+  text-align: center;
+  font: normal normal normal 16px/25px Poppins;
+  letter-spacing: 0px;
+  color: #ffffff;
+  opacity: 1;
+  width: 100%;
+}
+.red {
+  background-color: #ff0000;
+  border: none;
+  text-align: center;
+  font: normal normal normal 16px/25px Poppins;
+  letter-spacing: 0px;
+  color: #ffffff;
+  opacity: 1;
+  width: 100%;
+}
+.title {
+  color: #ff0000 !important;
+}
+.card-group {
+  gap: 2rem !important;
+}
+.card {
+  border: 1px solid black !important;
+}
+.button-group {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+}
+.footer {
+  background: var(--unnamed-color-01260d) 0% 0% no-repeat padding-box;
+  border: 1px solid var(--unnamed-color-707070);
+  background: #01260d 0% 0% no-repeat padding-box;
+  border: 1px solid #707070;
+  opacity: 1;
+  margin-top: 5rem !important;
+  padding: 1rem;
+}
+.contain {
+  text-align: center !important;
+  font: normal normal normal 18px/27px Poppins !important;
+  letter-spacing: 0px !important;
+  color: #ffffff !important;
+  opacity: 1 !important;
+}
+.contain a {
+  color: #ffffff !important;
+  text-align: center !important;
+}
+
+.control {
+  margin: 3rem !important;
+  width: 25rem !important;
+}
+.box-border {
+  padding: 1rem;
+  border-radius: 50px;
+
+  margin: 7rem 0 !important;
+
+  border: 1px solid #009b0a;
+}
+.sell {
+  color: #0d8000;
+  text-align: center;
+  font: normal normal bold 24px/35px Poppins;
+  letter-spacing: 0px;
+  opacity: 1;
+  margin: 5px !important;
+}
+
+#login{  
+  background-image: url("D:\Agrimart\AgriMart\public\login.png");
+  background-repeat: no-repeat;
+  text-align: center;
+  width: 90%;
+  margin-top: 212px;
+  height: 470px;
+  border-color: #009b0a;
+  border-radius: 35px;
+}
+ 
+
+.link {
+  margin: 5px;
+  color: #000000;
+  text-align: center;
+  text-decoration: underline;
+  font: normal normal medium 24px/35px Poppins;
+  letter-spacing: 0px;
+  opacity: 1;
+}
+
+.signup {
+  margin: 7rem 0 !important;
+}
+.formcontrol {
+  padding: 0.7rem !important;
+  border: 1px solid #0d8000 !important;
+}
+.head {
+  color: var(--unnamed-color-228e38);
+  text-align: left;
+  font: normal normal bold 24px/35px Poppins;
+  letter-spacing: 0px;
+  color: #228e38;
+  opacity: 1;
+}
+.label {
+  text-align: center !important;
+  font: normal normal normal 18px/24px Flama !important;
+  letter-spacing: 0px !important;
+  color: #000000 !important;
+  opacity: 1 !important;
+}
+.icon {
+  border-radius: 50%;
+  width: 70px;
+}
+.flex {
+  display: grid;
+  gap: 2rem;
+  grid-template-columns: 1fr 1fr 1fr 1fr;
+  color: white;
+}
+.become-bg {
+  width: 100%;
+  background-repeat: no-repeat;
+  /* padding: 2rem; */
+  background-image: url("D:\Agrimart\AgriMart\public\sunshine.png");
+}
+.root {
+  margin: 7rem 0;
+  padding: 2rem;
+  text-align: center;
+}
+.btn {
+  color: #ffffff !important;
+  margin-top: 1rem !important;
+  background-color: #228e38 !important;
+  border: none !important;
+}
+.become-launch {
+  color: #ffffff;
+}
+.changepassword {
+  margin-left: 35rem !important;
+}
+.addcrop {
+  text-align: center;
+}
+.background {
+  background-image: url("D:\Agrimart\AgriMart\public\landingpage.png");
+  background-repeat: no-repeat;
+  background-size: cover;
+  margin-top: 100px;
+  height: 15rem;
+  opacity: 1;
+  margin-bottom: 20px;
+}
+.yourCrop {
+  color: #ffffff;
+  text-align: center;
+  font-size: 100px;
+  font-weight: 50px;
+  opacity: 1;
+}
