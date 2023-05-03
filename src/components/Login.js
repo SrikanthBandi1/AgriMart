@@ -27,16 +27,10 @@ function Login() {
       .post("http://192.168.5.35:8000/userlogin/", obj)
       .then((res) => {
         debugger;
-        if(res.status === 200){
-            if(res.data.IsCustomer === true){
+        if(res.status === 200){     
                 console.log(res.data.IsCustomer,"cus")
                 dispatch(isUser(res.data.IsCustomer));
-                
-            }
-            else{
-                dispatch(isUser(res.data.IsFarmer));
-                console.log(res.data.IsFarmer,"fav")
-            }
+                navigate('/')
         }
        
       });

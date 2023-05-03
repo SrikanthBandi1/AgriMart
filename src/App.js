@@ -36,12 +36,10 @@ import { useState } from "react";
 
 function App() {
   const info = useSelector((select) => select.check.data);
-  const[data,setData]=useState(info)
-
   return (
     <div className="App">
       {
-        info?
+       info?
         <BrowserRouter>
         <Routes>
           <Route path="/" element={<Home />}></Route>
@@ -67,7 +65,7 @@ function App() {
 
         </Routes>
       </BrowserRouter>
-      :
+      : 
       <BrowserRouter>
      <FarmerNavBar/>
 <Routes>
