@@ -7,7 +7,8 @@ import Form from "react-bootstrap/Form";
 import Nav from "react-bootstrap/Nav";
 import Navbar from "react-bootstrap/Navbar";
 import NavDropdown from "react-bootstrap/NavDropdown";
-import { useNavigate } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
+import logo from '../images/logo.png'
 
 
 function Header() {
@@ -63,6 +64,14 @@ function Header() {
       }
     });
   };
+  const logout = ()=>{
+    alert("logout")
+    axios.post("http://192.168.5.35:8000/logout/",{
+             
+    },)
+    .then((res)=>tost)
+    alert("hiii")
+  }
   return (
     <div>
       <Navbar expand="lg" className="nav" fixed="top">
@@ -72,7 +81,7 @@ function Header() {
               navigate("/");
             }}
           >
-            <img src="D:\eform\public\logo.png" />
+            <img src={logo} />
           </Navbar.Brand>
           <Navbar.Toggle aria-controls="navbarScroll" />
           <Navbar.Collapse id="navbarScroll">
@@ -107,16 +116,14 @@ function Header() {
               >
                 <b>Log In</b>
               </Nav.Link>
-              <Nav.Link
-                onClick={() => {
-                  navigate("/cartitems");
-                }}
-              >
-                <b>Cart</b>
-              </Nav.Link>
-             
-            </Nav>
-            <input type="text" placeholder='Pincode' value={pinCode} onChange={(e) => setPincode(e.target.value)} onClick={handleClick} />
+              <NavDropdown  className="bold" title="Welcome user">
+              <NavDropdown.Item href="/addaddress">Add Address</NavDropdown.Item>
+              <NavDropdown.Item href="/changepassword">Change Password</NavDropdown.Item>
+              <NavDropdown.Item onClick={()=>logout()}>Logout</NavDropdown.Item>
+              </NavDropdown>
+
+               </Nav>
+            <input style={{height:'55px',borderRadius:'10px'}} type="text" placeholder='Pincode' value={pinCode} onChange={(e) => setPincode(e.target.value)} onClick={handleClick} />
             <Form className="d-flex">
               <Autocomplete freeSolo id="free-solo-2-demo" disableClearable options={combine.map((option) => option.title)}
                 onInputChange={handleInputChange}

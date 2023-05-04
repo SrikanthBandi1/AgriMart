@@ -5,16 +5,13 @@ import Layout from './Layout';
 function OrderSummary() {
     const location = useLocation();
     const ordersummary = location.state;
-    const navigate = useNavigate()
-    const handleAddress = () => {
-        navigate('/addaddress')
-    }
-    const handleOrder = () => {
-        navigate('/payment')
+    const navigate=useNavigate()
+    const handleAddress=()=>{
+navigate('/addaddress')
     }
     return (
         <Layout>
-            <div style={{ marginTop: "50px" }}>
+            <div style={{ marginTop: "90px" }}>
                 <h6 style={{
                     color: " var(--unnamed-color-228e38)",
                     marginLeft: "50px",
@@ -50,7 +47,7 @@ function OrderSummary() {
                         </table>
                     </div>
                     <div className="col-4">
-                        <div class="card" style={{ width: "70%", height: "100%", borderRadius: "18px" }}>
+                        <div class="card" style={{ width: "70%", height: "100%",borderRadius:"18px" }}>
                             <div class="card-body">
                                 <h6 style={{
                                     color: "var(--unnamed-color-000000)",
@@ -60,21 +57,19 @@ function OrderSummary() {
                                     color: "#000000",
                                     opacity: 1
                                 }}>Shipping Addess</h6>
-                                <div style={{ marginLeft: "50px" }}>
-
+                                <div  style={{marginLeft:"50px"}}>
+                                   
                                     <input type="radio" value="farmer" name="role" />&nbsp;Address &emsp;<br></br>
-                                    <input type="radio" value="customer" name="role" style={{ marginTop: "20px" }} />&nbsp;Address1
+                                    <input type="radio" value="customer" name="role"  style={{marginTop:"20px"}}/>&nbsp;Address1
                                 </div>
-                                <button style={{
-                                    textAlign: "center",
-                                    font: "normal normal 600 20px/30px Poppins",
-                                    letterSpacing: "0px",
-                                    color: " #FFFFFF",
-                                    backgroundColor: "#228E38",
-                                    border: "0",
-                                    opacity: 1,
-                                    marginTop: "20px", marginLeft: "50px"
-                                }} onClick={handleAddress}>+Add Address</button>
+                                <button style={{textAlign: "center",
+font: "normal normal 600 20px/30px Poppins",
+letterSpacing: "0px",
+color:" #FFFFFF",
+backgroundColor:"#228E38",
+border:"0",
+opacity: 1,
+marginTop:"20px",marginLeft:"50px"}} onClick={handleAddress}>+Add Address</button>
                             </div>
                         </div>
                     </div>
@@ -83,24 +78,8 @@ function OrderSummary() {
                     <div className="col-8"></div>
 
                 </div>
-                <div className='row'>
-                    <div className='col-md-4'></div>
-                    <div className='col-md-4'></div>
-                    <div className='col-md-4 '>
-                        <div className='card' style={{ width: "70%", height: "100%", borderRadius: "18px" }}>
-                            <div className='card-body'>
-                                <h4>The Total Amount of</h4>
-                            </div>
-                            <div className='mt-3'>
-                                <h6>Shipping Amount : Rs.30</h6>
-                                <hr></hr>
-                                <h6>Total : Rs.55</h6>
-                                <button className='btn btn-success' onClick={handleOrder} style={{marginLeft:'80px'}}>PlaceOrder</button>
-                            </div>
-                        </div>
-                    </div>
-                    </div>
-                </div>
+
+            </div>
         </Layout>
     )
 }

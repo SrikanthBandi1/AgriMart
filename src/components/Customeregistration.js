@@ -3,7 +3,7 @@ import { Form, Button } from "react-bootstrap";
 import Layout from "./Layout";
 import { Link } from "react-router-dom";
 
-function Registration() {
+function Customeregistration() {
   const [username, setUsername] = useState("");
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
@@ -20,7 +20,7 @@ function Registration() {
     <Layout>
       <div className="container">
         <Form onSubmit={handleSubmit} className="signup">
-          <h1 className="head"> Registration</h1>
+          <h1 className="head">Customer Registration</h1>
           <div className="row">
             <div className="col-md-6">
               <Form.Group controlId="formBasicUsername" className="mb-4">
@@ -151,4 +151,4 @@ function Registration() {
   );
 }
 
-export default Registration;
+export default Customeregistration;

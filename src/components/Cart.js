@@ -8,19 +8,17 @@ function Cart() {
   console.log(cartItems, "cartItems")
   const [increment, setIncrement] = useState(cartItems.discountd_price)
   const [shipping, setShipping] = useState(30)
-  const[qty,setQty] = useState(1)
   const navigate=useNavigate()
 
   const handleDecrement = () => {
 
-    if (increment > cartItems.discountd_price ) {
+    if (increment > cartItems.discountd_price) {
       setIncrement(increment - cartItems.discountd_price);
-      setQty(qty-1);
     }
   }
   const handleIncrement = () => {
     setIncrement(increment + cartItems.discountd_price)
-    setQty(qty+1);
+
   }
   const placeOrder=()=>{
     navigate('/ordersummary',{state:cartItems})
@@ -56,12 +54,7 @@ function Cart() {
             Amount: RS.{cartItems.discountd_price}.00
           </div>
           <div style={{ marginLeft: "30px" }}>
-          <div className='input-group d-flex' >
-            <p style={{marginRight:'10px'}}> Quantity:</p> 
-                <button className='btn btn-danger' onClick={handleDecrement}>-</button>
-                <input type='number' value={qty} style={{textAlign:'center',height:"40px",width:'60px'}}></input>
-                <button className='btn btn-success' onClick={handleIncrement}>+</button>
-            </div> </div>
+            Quantity:  <button type="button" class="btn btn-default border" onClick={() => handleDecrement()} > - </button> <button type="button" class="btn btn-default border">  </button> <button type="button" class="btn btn-default border" onClick={() => handleIncrement()} > + </button> </div>
           <div className='flex' style={{ marginTop: "30px", marginLeft: "20px" }}>
             <div><button style={{
               color: "var(--unnamed-color-000000)",
@@ -105,14 +98,14 @@ function Cart() {
                 opacity: 1
               }}>The Total Amount Of</h5>
               <div className='flex' style={{ marginTop: "30px", marginLeft: "2px" }}>
-                <div><h4 style={{ color: "black", marginLeft: "50px" }}>Amount</h4></div>
+                <div><h4 style={{ color: "black", marginLeft: "50px" }}>Ammount</h4></div>
 
                 <div>
                   <h4 style={{ color: "black" }}> Rs.{increment.toFixed(2)}</h4>
                 </div>
               </div>
               <div className='flex' style={{ marginTop: "10px", marginLeft: "2px" }}>
-                <div><h4 style={{ color: "black", marginLeft: "50px" }}>Shipping </h4></div>
+                <div><h4 style={{ color: "black", marginLeft: "50px" }}>Shipping</h4></div>
 
                 <div>
                   <h4 style={{ color: "black" }}> Rs.30.00</h4>
