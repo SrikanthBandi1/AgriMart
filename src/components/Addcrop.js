@@ -226,7 +226,7 @@ function Addcrop() {
             </div>
           </div>
           <div className="col-lg-4  rigntbutton">
-            <label for="inputTypeOfAddCategory">Description</label>
+            <label for="inputTypeOfAddCategory">Description </label>
             <div className="mb-0">
               <input
                 type="textarea"
