@@ -7,7 +7,7 @@ import Form from "react-bootstrap/Form";
 import Nav from "react-bootstrap/Nav";
 import Navbar from "react-bootstrap/Navbar";
 import NavDropdown from "react-bootstrap/NavDropdown";
-import { Link, useNavigate } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 
 
 function Header() {
@@ -109,7 +109,7 @@ function Header() {
               </Nav.Link>
               <Nav.Link
                 onClick={() => {
-                  navigate("/Cart");
+                  navigate("/cartitems");
                 }}
               >
                 <b>Cart</b>

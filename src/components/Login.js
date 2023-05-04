@@ -1,12 +1,10 @@
 import axios from "axios";
 import React, { useState } from "react";
-
-import Header from "./Header";
-import Footer from "./Footer";
 import { useNavigate } from "react-router-dom";
 import Layout from "./Layout";
 import { useDispatch, useSelector } from "react-redux";
 import { isUser } from "../actions/Action";
+import { toast } from "react-toastify";
 
 function Login() {
   const [email, setEmail] = useState("");
@@ -17,28 +15,33 @@ function Login() {
 
   const verify = (e) => {
     e.preventDefault();
-    let obj={
-        email: email,
-        password: password,
-        user_type: type,
+    let obj = {
+      email: email,
+      password: password,
+      user_type: type,
     }
-    console.log(obj,"obj")
+
     axios
       .post("http://192.168.5.35:8000/userlogin/", obj)
       .then((res) => {
-        debugger;
-        if(res.status === 200){
-            if(res.data.IsCustomer === true){
-                console.log(res.data.IsCustomer,"cus")
-                dispatch(isUser(res.data.IsCustomer));
-                
-            }
-            else{
-                dispatch(isUser(res.data.IsFarmer));
-                console.log(res.data.IsFarmer,"fav")
-            }
+        // debugger;
+        if (res.status === 200) {
+          if (res.data.IsCustomer === true) {
+            console.log(res.data.IsCustomer, "cus")
+            dispatch(isUser(res.data.IsCustomer));
+            toast.success("login successful")
+          }
+          else {
+            dispatch(isUser(res.data.IsFarmer));
+            toast.success("login successful")
+            console.log(res.data.IsFarmer, "fav")
+          }
         }
-       
+        else {
+          toast.error("Invalid Credentials")
+          alert("error")
+        }
+
       });
   };
   return (
@@ -91,7 +94,7 @@ function Login() {
                   />
                   customer
                 </div>
-              </div>
+              </div><br />
               <div className="row">
                 <div className="col-md-6 d-flex mx-5">
                   <button
@@ -103,7 +106,7 @@ function Login() {
                     Login
                   </button>
                 </div>
-              </div>
+              </div><br />
               <div className="col-md-6 ">
                 <div className="d-flex mx-5 mt-3">
                   <h4 className="fs-6 fw-bold" style={{ color: "green" }}>
@@ -113,13 +116,13 @@ function Login() {
                     className="mx-3 fw-bold"
                     href="/signup"
                     style={{ color: "black" }}
-                    //    onClick={()=>{navigate('/signup')}}
+                    onClick={() => { navigate('/registration') }}
                   >
                     Create account
                   </a>
-                </div>
+                </div><br />
                 <div className="d-flex mx-5">
-                  <a href="/forgotpassword">ForgotPassword?</a>
+                  <a href="/forgotPassword">ForgotPassword?</a>
                 </div>
               </div>
             </div>

@@ -131,8 +131,8 @@ input[type="email"] {
   background-repeat: no-repeat;
   text-align: center;
   width: 90%;
-  margin-top: 212px;
-  height: 470px;
+  margin-top: 100px;
+  height: 480px;
   border-color: #009b0a;
   border-radius: 35px;
 }
@@ -193,7 +193,7 @@ input[type="email"] {
 }
 .btn {
   color: #ffffff !important;
-  margin-top: 1rem !important;
+  /* margin-top: 1rem !important; */
   background-color: #228e38 !important;
   border: none !important;
 }
