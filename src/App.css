@@ -96,15 +96,7 @@ input[type="email"] {
   color: #ffffff !important;
   text-align: center !important;
 }
-/* .form {
-  background-image: url(C:\Users\ra22185\Downloads\e-farming\public\login.png);
-  background-repeat: no-repeat;
-  padding: 2rem !important;
-  background-position: center;
-  border-radius: 35px;
-  border: 1px solid #009b0a;
-  height: 500px;
-} */
+
 .control {
   margin: 3rem !important;
   width: 25rem !important;
@@ -127,7 +119,7 @@ input[type="email"] {
 }
 
 #login{  
-  background-image: url("../public/login.png");
+  background-image: url("D:\Agrimart\AgriMart\public\login.png");
   background-repeat: no-repeat;
   text-align: center;
   width: 90%;
@@ -184,7 +176,7 @@ input[type="email"] {
   width: 100%;
   background-repeat: no-repeat;
   /* padding: 2rem; */
-  background-image: url("../public/sunshine.png");
+  background-image: url("D:\Agrimart\AgriMart\public\sunshine.png");
 }
 .root {
   margin: 7rem 0;
@@ -207,7 +199,7 @@ input[type="email"] {
   text-align: center;
 }
 .background {
-  background-image: url("../public/landingpage.png");
+  background-image: url("D:\Agrimart\AgriMart\public\landingpage.png");
   background-repeat: no-repeat;
   background-size: cover;
   margin-top: 100px;
