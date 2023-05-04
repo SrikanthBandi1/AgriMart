@@ -5,42 +5,114 @@ import Layout from "./Layout";
 import { Link } from "react-router-dom";
 import "../Cssfiles/Addcrop.css";
 import { useRef } from "react";
+import axios from "axios";
 function Addcrop() {
   const [username, setUsername] = useState("");
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [confirmPassword, setConfirmPassword] = useState("");
   const [title, setTitle] = useState();
-  const [sellingPrice, setSellingPrice] = useState();
-  const [discountedPrice, setDiscountedPrice] = useState();
+  const [selling_price, setSelling_price] = useState();
+  const [discountd_price, setDiscountd_price] = useState();
   const [category, setCategory] = useState();
   const [quantity, setQuantity] = useState();
   const [description, setDescription] = useState();
-  const [image, setImage] = useState(null);
+  const [product_image, setProduct_image] = useState(null);
   const fileInputRef = useRef(null);
+  const categories = ["V", "F"];
+  const titleOptions = [
+    "Apple",
+    "Banana",
+    "Black Berris",
+    "Blue Berris",
+    "Brinjal",
+    "Bitter Gourd",
+    "Capsicum",
+    "Cabbage",
+    "Chilli",
+    "Cherries",
+    "Custard Apple",
+    "cluster Beans",
+    "Elephant Tusk Okra",
+    "Flat Beans",
+    "Ginger",
+    "Grapes",
+    "Guava",
+    "malabar Cucumber",
+    "Mango",
+    "Onion",
+    "Okra",
+    "Orange",
+    "Pine Apple",
+    "Carrot",
+    "Pear",
+    "Plumps",
+    "Papaya",
+    "Pumpkins",
+    "Pigeon Pea",
+    "Potato",
+    "Snake Cucumber",
+    "Tarmeric",
+    "Water Melon",
+    "Water Spincah",
+  ];
+   const token=localStorage.getItem('token')
+  const config = {
+    headers: {
+      "Content-Type": "multipart/form-data",
+      'X-CSRFToken': token,
+      'Authorization': `Bearer ${token}`
+    }
+  };
 
-  const handleSubmit = (event) => {
-    event.preventDefault();
-    
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    let obj = {
+      title: title,
+      selling_price: +selling_price,
+      discountd_price: +discountd_price,
+      category: category,
+      quantity: +quantity,
+      description: description,
+      product_image: product_image,
+    };
+    console.log(token, "token");
+    console.log(obj, "obj");
+
+    const formData = new FormData();
+    formData.append("title", title);
+    formData.append("selling_price", selling_price);
+    formData.append("discountd_price", discountd_price);
+    formData.append("category", category);
+    formData.append("quantity", quantity);
+    formData.append("description", description);
+    formData.append("product_image", product_image);
+    console.log(formData, "formData");
+    // debugger;
+    axios
+      .post("http://192.168.5.35:8000/addproducts/", formData,config)
+      .then((res) => {
+        console.log(res, "11111");
+      });
+
+      
   };
 
   const handleChangeImage = (e) => {
-    console.log(e.target.files[0].name);
     const file = e.target.files[0];
     if (file && file.type.startsWith("image/")) {
       const reader = new FileReader();
       reader.readAsDataURL(file);
       reader.onloadend = () => {
-        setImage(reader.result);
+        setProduct_image(reader.result);
       };
     } else {
       alert("Please select a valid image file.");
     }
-    // setImage(e.target.files[0]);
   };
 
   return (
-    <Layout>
+  
       <div className="" style={{ marginTop: "110px" }}>
         <div
           className="ms-5 mt-0 "
@@ -55,17 +127,19 @@ function Addcrop() {
           <div className="col-lg-4">
             <label for="inputTypeTittle">Title</label>
             <div className="mb-0">
-              <input
-                type="text"
-                className="form-control"
-                placeholder="Name Of Product"
+              <select
+                className="form-select"
+                aria-label="Title Select"
                 value={title}
                 onChange={(e) => {
                   setTitle(e.target.value);
                 }}
-                required
-                autoComplete="off"
-              />
+              >
+                <option selected>Select a Title</option>
+                {titleOptions.map((title) => (
+                  <option value={title}>{title}</option>
+                ))}
+              </select>
             </div>
           </div>
           <div className="col-lg-4">
@@ -74,10 +148,12 @@ function Addcrop() {
               <input
                 type="text"
                 className="form-control"
-                placeholder="Product Description"
-                value={sellingPrice}
+                placeholder="Selling Price"
+                inputmode="numeric"
+                pattern="[0-9]*"
+                value={selling_price}
                 onChange={(e) => {
-                  setSellingPrice(e.target.value);
+                  setSelling_price(e.target.value);
                 }}
                 required
                 autoComplete="off"
@@ -90,10 +166,12 @@ function Addcrop() {
               <input
                 type="text"
                 className="form-control"
-                placeholder="MarkedPrice"
-                value={discountedPrice}
+                inputmode="numeric"
+                pattern="[0-9]*"
+                placeholder="Discounted Price"
+                value={discountd_price}
                 onChange={(e) => {
-                  setDiscountedPrice(e.target.value);
+                  setDiscountd_price(e.target.value);
                 }}
                 required
                 autoComplete="off"
@@ -103,26 +181,41 @@ function Addcrop() {
           <div className="col-lg-4">
             <label for="inputTypeSellingPrice">Category</label>
             <div className="mb-0">
-              <input
+              {/* <input
                 type="text"
                 className="form-control"
-                placeholder="SellingPrice"
+                placeholder="Category"
                 value={category}
                 onChange={(e) => {
                   setCategory(e.target.value);
                 }}
                 required
                 autoComplete="off"
-              />
+              /> */}
+              <select
+                className="form-select"
+                aria-label="Title Select"
+                value={category}
+                onChange={(e) => {
+                  setCategory(e.target.value);
+                }}
+              >
+                <option selected>Select a Category</option>
+                {categories.map((category) => (
+                  <option value={category}>{category}</option>
+                ))}
+              </select>
             </div>
           </div>
           <div className="col-lg-4">
             <label for="inputTypeQuantity">Quantity</label>
             <div className="mb-0">
               <input
-                type="number"
+                type="text"
                 className="form-control"
                 placeholder="Quantity"
+                inputmode="numeric"
+                pattern="[0-9]*"
                 value={quantity}
                 onChange={(e) => {
                   setQuantity(e.target.value);
@@ -138,7 +231,7 @@ function Addcrop() {
               <input
                 type="textarea"
                 className="form-control"
-                placeholder="Add a Category"
+                placeholder="Description"
                 value={description}
                 onChange={(e) => {
                   setDescription(e.target.value);
@@ -156,8 +249,8 @@ function Addcrop() {
               className=" mt-6 col-6"
               style={{ height: "50px", width: "450px", display: "flex" }}
             >
-              {image && (
-                <img src={image} style={{ height: "150px", width: "150px" }} />
+              {product_image && (
+                <img src={product_image} style={{ height: "150px", width: "150px" }} />
               )}{" "}
               <button
                 className="btn btn-default border-0 rounded-0 "
@@ -167,12 +260,13 @@ function Addcrop() {
                   backgroundColor: "#707070",
                   color: "white",
                   marginTop: "65px",
+                  textAlign: "center",
                 }}
                 onClick={() => {
                   fileInputRef.current.click();
                 }}
               >
-                Change Image
+                Add Image
               </button>
               <input
                 type="file"
@@ -199,7 +293,7 @@ function Addcrop() {
           </button>
         </div>
       </div>
-    </Layout>
+  
   );
 }
 
