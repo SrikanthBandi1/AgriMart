@@ -10,6 +10,7 @@ function Login() {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [type, setType] = useState("");
+  const [data,setData]=useState();
   const navigate = useNavigate();
   const dispatch = useDispatch();
 
@@ -24,6 +25,7 @@ function Login() {
     axios
       .post("http://192.168.5.35:8000/userlogin/", obj)
       .then((res) => {
+<<<<<<< HEAD
         // debugger;
         if (res.status === 200) {
           if (res.data.IsCustomer === true) {
@@ -36,6 +38,13 @@ function Login() {
             toast.success("login successful")
             console.log(res.data.IsFarmer, "fav")
           }
+=======
+        if(res.status === 200){   
+                console.log(res.data.csrftoken,"cus")
+                localStorage.setItem('token',res.data.csrftoken)
+                dispatch(isUser(res.data.IsCustomer));
+                navigate('/')
+>>>>>>> f857d1fda776d85cf0eb13d7d468a67ddc0ba3a2
         }
         else {
           toast.error("Invalid Credentials")

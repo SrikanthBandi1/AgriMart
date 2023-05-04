@@ -39,6 +39,7 @@ import OrderConform from "./components/OrderConform";
 
 function App() {
   const info = useSelector((select) => select.check.data);
+<<<<<<< HEAD
   const [data, setData] = useState(info)
 
   return (
@@ -84,6 +85,47 @@ function App() {
             </Routes>
 
           </BrowserRouter>
+====
+  return (
+    <div className="App">
+      {
+       info?
+        <BrowserRouter>
+        <Routes>
+          <Route path="/" element={<Home />}></Route>
+          <Route path="login" element={<Login />} />
+          <Route path="signup" element={<SignUp />} />
+          <Route path="becomeaseller" element={<Becomeaseller />} />
+          <Route path="farmerdashboard" element={<FarmerDashboard />} />
+          <Route path="customeregistration" element={<Customeregistration />} />
+          <Route path="changepassword" element={<Changepassword />} />
+          <Route path="VegiesProduct" element={<ShowingProducts />} />
+          <Route path="FruitProduct" element={<ShowingFruitProduct />} />
+          <Route path="Cart" element={<Cart />} />
+          <Route path="ordersummary" element={<OrderSummary />} />
+          <Route path="addaddress" element={<Addadress />} />
+          <Route path="Categories" element={<Categorie />} />
+          <Route path='Dropveg' element={<Dropdownveg />} />
+          <Route path='Dropfruit' element={<Dropdownfruit />} />
+          <Route path='addressInfo' element={<AddressInfo />} />
+          <Route path='PincodeFilter' element={<PincodeFilter />} />
+          <Route path='PinResult' element={<PinResult />} />
+          <Route path='searchResult' element={<SearchResult />} />
+        
+
+        </Routes>
+      </BrowserRouter>
+      : 
+      <BrowserRouter>
+     <FarmerNavBar/>
+<Routes>
+      <Route path='/' element={ <AddCropsLanding/>}/>
+      <Route path="addcrop" element={<Addcrop />} />
+      <Route path='editcrop' element={<EditCrop/>}/>
+        <Route path='recievedorder' element={<ReceivedOrders />} />
+        </Routes>
+    </BrowserRouter> 
+>>>>>>> f857d1fda776d85cf0eb13d7d468a67ddc0ba3a2
       }
 
 
