@@ -12,6 +12,7 @@ function Login() {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [type, setType] = useState("");
+  const [data,setData]=useState();
   const navigate = useNavigate();
   const dispatch = useDispatch();
 
@@ -26,17 +27,11 @@ function Login() {
     axios
       .post("http://192.168.5.35:8000/userlogin/", obj)
       .then((res) => {
-        debugger;
-        if(res.status === 200){
-            if(res.data.IsCustomer === true){
-                console.log(res.data.IsCustomer,"cus")
+        if(res.status === 200){   
+                console.log(res.data.csrftoken,"cus")
+                localStorage.setItem('token',res.data.csrftoken)
                 dispatch(isUser(res.data.IsCustomer));
-                
-            }
-            else{
-                dispatch(isUser(res.data.IsFarmer));
-                console.log(res.data.IsFarmer,"fav")
-            }
+                navigate('/')
         }
        
       });
