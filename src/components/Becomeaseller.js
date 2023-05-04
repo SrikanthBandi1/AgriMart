@@ -6,11 +6,11 @@ function Becomeaseller() {
   const [email, setEmail] = useState("");
   return (
     <Layout>
-      <div className="signup become-bg">
-        <div className="row">
+      <div className="signup become-bg" >
+        <div className="row" style={{marginTop:"-120px"}}>
           <div className="col-md-3">
             <div className="root">
-              <h2 className="become-launch">
+              <h2 className="become-launch"  >
                 Launch Your Business in 10 Minutes
               </h2>
               <Form>

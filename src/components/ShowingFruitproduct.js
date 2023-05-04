@@ -2,18 +2,26 @@ import React from 'react'
 import Layout from "./Layout";
 import { useLocation, useNavigate } from 'react-router-dom'
 import { Button, Card } from 'react-bootstrap';
+import { useSelector } from 'react-redux';
 
 function ShowingFruitProduct() {
-    const navigate=useNavigate()
+    const navigate = useNavigate()
+    const value = useSelector((state) => state.check.code)
 
     const location = useLocation();
     const dataReceived = location.state;
     console.log(dataReceived)
-    const handleFruitCart=()=>{
-        navigate('/Cart',{state:dataReceived})
+    const handleFruitCart = () => {
+        if (value === 200) {
+            navigate('/Cart', { state: dataReceived })
+        }
+        else {
+            navigate('/login',{ state: dataReceived })
+
+        }
     }
-    const handleBuy=()=>{
-        navigate('/Cart',{state:dataReceived})
+    const handleBuy = () => {
+        navigate('/Cart', { state: dataReceived })
     }
     return (
         <Layout>

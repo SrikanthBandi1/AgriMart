@@ -4,8 +4,12 @@ import { useNavigate } from "react-router-dom";
 import { Button, Form, NavDropdown } from "react-bootstrap";
 import axios from "axios";
 import { Autocomplete, TextField } from "@mui/material";
+import { useSelector } from "react-redux";
 
 function CustomerNavbar() {
+    const value = useSelector((state) => state.check.response)
+    const datas=useSelector((state)=>state.check.name)
+
 
     const handleOrders = () => {
         navigate('/recievedorder')
@@ -14,8 +18,6 @@ function CustomerNavbar() {
     const navigate = useNavigate();
     const [pinCode, setPincode] = useState()
     const [data, setData] = useState([]);
-
-
 
     const [fruits, setFruits] = useState([]);
 
@@ -84,7 +86,7 @@ function CustomerNavbar() {
                     <div class="collapse navbar-collapse" id="navbarNav">
                         <ul class="navbar-nav mx-auto mb-2 mb-lg-0 me-5">
                             <li class="nav-item navElements ">
-                                <a class="nav-link  " aria-current="page" href="#">
+                                <a class="nav-link  " aria-current="page" href="/becomeaseller">
                                     Become a Seller
                                 </a>
                             </li>
@@ -93,35 +95,56 @@ function CustomerNavbar() {
                                 id="navbarScrollingDropdown"
                                 className="bold"
                             >
-                                <NavDropdown.Item href="#action3" onClick={() => {
+                                <NavDropdown.Item  onClick={() => {
                                     navigate("/Dropveg")
                                 }}>Vegetables</NavDropdown.Item>
-                                <NavDropdown.Item href="#action4" onClick={() => {
+                                <NavDropdown.Item  onClick={() => {
                                     navigate('/Dropfruit')
                                 }}>Fruits</NavDropdown.Item>
                             </NavDropdown>
-                            <li class="nav-item navElements">
-                                <a class="nav-link " href="/login">
-                                    Login
-                                </a>
-                            </li>
-                            <li class="nav-item navElements">
-                                <a class="nav-link " href="#">
-                                    cart
-                                </a>
-                            </li>
-                            <li class="nav-item" >
-                                <a class="nav-link profileName" style={{ color: "#228E38", fontWeight: "bold" }} href="#">
-                                    Welcome Vinay
-                                </a>
-                            </li>
+                            {value === "success" ?
+                                <div className="d-flex">
+
+                                    <NavDropdown
+                                        title={datas}
+                                        id="navbarScrollingDropdown"
+                                        className="bold"
+                                    >
+                                        <NavDropdown.Item  onClick={() => {
+                                            navigate()
+                                        }}>Profile</NavDropdown.Item>
+                                        <NavDropdown.Item onClick={() => {
+                                            navigate('/orders')
+                                        }}>orders</NavDropdown.Item>
+                                         <NavDropdown.Item onClick={() => {
+                                            navigate()
+                                        }}>Change Password</NavDropdown.Item>
+                                         <NavDropdown.Item  onClick={() => {
+                                            navigate()
+                                        }}>Logout</NavDropdown.Item>
+                                    </NavDropdown>
+                                    <li class="nav-item navElements">
+                                        <a class="nav-link " href="/Cart">
+                                            cart
+                                        </a>
+                                    </li>
+                                </div> :
+
+
+                                <li class="nav-item navElements">
+                                    <a class="nav-link " href="/login">
+                                        Login
+                                    </a>
+                                </li>
+                            }
+
                         </ul>
                         <div class="ms-auto mb-2 " style={{ marginRight: "40px" }}>
-                            
-                            <Form className="d-flex">
-                            <input type="text" placeholder='Pincode' value={pinCode} onChange={(e) => setPincode(e.target.value)} onClick={handleClick}  />
 
-                                <Autocomplete  style={{marginLeft:"30px"}} freeSolo id="free-solo-2-demo" disableClearable options={combine.map((option) => option.title)}
+                            <Form className="d-flex">
+                                <input type="text" placeholder='Pincode' value={pinCode} onChange={(e) => setPincode(e.target.value)} onClick={handleClick} />
+
+                                <Autocomplete style={{ marginLeft: "30px" }} freeSolo id="free-solo-2-demo" disableClearable options={combine.map((option) => option.title)}
                                     onInputChange={handleInputChange}
                                     renderInput={(params) =>
                                     (
@@ -129,9 +152,9 @@ function CustomerNavbar() {
                                             {...params} label="Search Item" InputProps={{ ...params.InputProps, type: "search", }}
                                         />)}
                                 />
-                                <Button variant="outline-success" onClick={handleButton}> <b>Search</b> </Button> 
-                                </Form>
-                              
+                                <Button variant="outline-success" onClick={handleButton}> <b>Search</b> </Button>
+                            </Form>
+
                         </div>
                     </div>
                 </div>
