@@ -8,10 +8,11 @@ function AddCropsLanding() {
   const handleEdit=()=>{
     navigate('/editcrop')
   }
+
   return (
     <div>
       <img
-        src='/Group 61.png'
+        src="/Group_61.png"
         className="  col-md-12 col-lg-12 col-sm-12   mt-5"
       />
       <div
@@ -74,6 +75,7 @@ function AddCropsLanding() {
               </div>
             </div>
           </div>
+ 
         </div>
       </div>
     </div>

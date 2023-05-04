@@ -30,17 +30,12 @@ import EditCrop from "./components/EditCrop";
 import FarmerNavBar from "./components/FarmerNavBar";
 import SearchResult from "./components/SearchResult";
 import ReceivedOrders from "./components/ReceivedOrders";
-import { useSelector } from "react-redux";
-import { useState } from "react";
 // import YoutubeForm from "./components/YoutubeForm";
 
 function App() {
-  const info = useSelector((select) => select.check.data);
   return (
     <div className="App">
-      {
-       info?
-        <BrowserRouter>
+      <BrowserRouter>
         <Routes>
           <Route path="/" element={<Home />}></Route>
           <Route path="login" element={<Login />} />
@@ -65,7 +60,8 @@ function App() {
 
         </Routes>
       </BrowserRouter>
-      : 
+
+
       <BrowserRouter>
      <FarmerNavBar/>
 <Routes>
@@ -75,11 +71,6 @@ function App() {
         <Route path='recievedorder' element={<ReceivedOrders />} />
         </Routes>
     </BrowserRouter> 
-      }
-     
-
-
-      
       {/* <AddressInfo/> */}
       {/* <FarmersProfile/> */}
 

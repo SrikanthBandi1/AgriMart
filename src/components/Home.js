@@ -31,7 +31,7 @@ navigate('/VegiesProduct',{ state: index })
           <Carousel.Item>
             <img
               className="d-block w-100"
-              src="/landingpage.png"
+              src="/image1.jpg"
               alt="First slide"
             />
             <Carousel.Caption className="caption">
@@ -44,7 +44,7 @@ navigate('/VegiesProduct',{ state: index })
           <Carousel.Item>
             <img
               className="d-block w-100"
-              src="/landingpage.png"
+              src="/image2.jpg"
               alt="Second slide"
             />
 
@@ -56,7 +56,7 @@ navigate('/VegiesProduct',{ state: index })
           <Carousel.Item>
             <img
               className="d-block w-100"
-              src="/landingpage.png"
+              src="/image3.jpg"
               alt="Third slide"
             />
 
