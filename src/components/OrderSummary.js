@@ -55,7 +55,7 @@ navigate('/addaddress')
                                     font: "normal normal bold 24px/35px Poppins",
                                     letterSpacing: "0px",
                                     color: "#000000",
-                                    opacity:      1
+                                    opacity: 1
                                 }}>Shipping Addess</h6>
                                 <div  style={{marginLeft:"50px"}}>
                                    
