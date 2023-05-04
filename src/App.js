@@ -56,6 +56,8 @@ function App() {
           <Route path='PincodeFilter' element={<PincodeFilter />} />
           <Route path='PinResult' element={<PinResult />} />
           <Route path='searchResult' element={<SearchResult />} />
+          <Route path='searchResult' element={<SearchResult />} />
+          <Route path='orders' element={<CustomerOrders />} />
         
 
         </Routes>
@@ -69,6 +71,7 @@ function App() {
       <Route path="addcrop" element={<Addcrop />} />
       <Route path='editcrop' element={<EditCrop/>}/>
         <Route path='recievedorder' element={<ReceivedOrders />} />
+        <Route path="becomeaseller" element={<Becomeaseller />} />
         </Routes>
     </BrowserRouter> 
       {/* <AddressInfo/> */}

@@ -3,8 +3,10 @@ import Layout from "./Layout";
 import { useLocation, useNavigate } from 'react-router-dom'
 import { Button, Card } from 'react-bootstrap';
 import axios from 'axios';
+import { useSelector } from 'react-redux';
 
 function ShowingProducts() {
+    const value = useSelector((state) => state.check.code)
 
     const navigate=useNavigate()
     const location = useLocation();
@@ -14,7 +16,14 @@ function ShowingProducts() {
      axios.get(`http://192.168.5.35:8000/productdetails/${dataReceived.id}`).then((resp)=>console.log(resp,"iam resp"))
     },[])
     const handleCart=()=>{
-       navigate('/Cart',{state:dataReceived})
+        if(value===200){
+            navigate('/Cart',{state:dataReceived})
+        }
+        else{
+            navigate('/login', {state:dataReceived})
+        
+        }
+      
        
     }
     const handleBuy=()=>{
@@ -55,8 +64,8 @@ function ShowingProducts() {
                     <h1 style={{ marginTop: "120px", marginLeft: "80px" }}> {dataReceived.description
                     }</h1>
                     <h1 style={{ marginTop: "25px", marginLeft: "80px" }}>Rs.{dataReceived.discountd_price
-                    }/ - Rs.{dataReceived.selling_price
-                        }/  </h1>
+                    }/ - <s>Rs.{dataReceived.selling_price
+                        }/ </s> </h1>
                     <div className='flex' style={{ marginTop: "30px", marginLeft: "78px" }}>
                         <div><button style={{
                             width: "150px",

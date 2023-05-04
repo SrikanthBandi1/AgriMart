@@ -1,9 +1,9 @@
 import axios from "axios";
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 
 import Header from "./Header";
 import Footer from "./Footer";
-import { useNavigate } from "react-router-dom";
+import { useLocation, useNavigate } from "react-router-dom";
 import Layout from "./Layout";
 
 
